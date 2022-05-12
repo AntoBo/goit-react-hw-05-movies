@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovie } from '../../service/fetchAPI';
 
 const MovieCard = () => {
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const [movie, setMovie] = useState();
   const location = useLocation();
-  const movieId = location.pathname.match(/[0-9]+$/)[0];
+  console.log(location);
+  const movieId = location.pathname.match(/[0-9]+/)[0];
   useEffect(() => {
     fetchMovie(movieId)
       // .then(data => console.log(data.data))
@@ -20,16 +21,40 @@ const MovieCard = () => {
   if (!movie) {
     return;
   }
-  const { title, poster_path, vote_average } = movie;
+  const { title, poster_path, vote_average, overview, genres } = movie;
 
   return (
-    <div className="movieCard">
-      <img src={BASE_IMG_URL + poster_path} width="300" alt={title}></img>
-      <h1>{title}</h1>
-      <p>User score: {vote_average * 10}%</p>
-      <h2>Overview</h2>
-      <p></p>
-    </div>
+    <>
+      <div className="movie-card-wrapper">
+        <img src={BASE_IMG_URL + poster_path} width="300" alt={title}></img>
+        <h1>{title}</h1>
+        <p>User score: {vote_average * 10}%</p>
+        <h2>Overview</h2>
+        <p>{overview}</p>
+        <h3>Genres</h3>
+        <p>
+          {genres.map(genre => (
+            <span key={genre.id} className="genre">
+              {genre.name}
+            </span>
+          ))}
+        </p>
+      </div>
+      <div className="movie-infolinks-wrapper">
+        <hr />
+        <p>Additional information</p>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+            {/* <Link to={`/movies/${movieId}/cast`}>Cast</Link> */}
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </div>
+      <Outlet />
+    </>
   );
 };
 
