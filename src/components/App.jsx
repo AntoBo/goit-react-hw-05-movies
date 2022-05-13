@@ -6,11 +6,11 @@ import Loader from './Loader/Loader';
 import Container from './Container/Container';
 
 const Cast = lazy(() => import('./Cast/Cast'));
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const MovieDetailsPage = lazy(() =>
-  import('./pages/MovieDetailsPage/MovieDetailsPage')
+  import('../pages/MovieDetailsPage/MovieDetailsPage')
 );
-const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {

@@ -5,7 +5,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchMoviesByQuery } from '../../../service/fetchAPI';
+import { fetchMoviesByQuery } from '../../service/fetchAPI';
 
 const MoviesPage = () => {
   const [isLoading, setIsLoading] = useState(false);

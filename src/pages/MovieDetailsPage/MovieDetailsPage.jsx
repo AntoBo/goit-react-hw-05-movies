@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { fetchMovieById } from '../../../service/fetchAPI';
+import { fetchMovieById } from '../../service/fetchAPI';
 
 import MovieCard from 'components/MovieCard/MovieCard';
-import GoBackBtn from '../../utils/GoBackBtn';
+import GoBackBtn from '../../components/GoBackBtn/GoBackBtn';
 import InfoDetails from 'components/InfoDetails/InfoDetails';
 import { useData } from 'hooks/useData';
 import Loader from 'components/Loader/Loader';
