@@ -1,3 +1,2 @@
-- Split code
 - Netlify
 - Sass

@@ -37,25 +37,3 @@ const Cast = () => {
 };
 
 export default Cast;
-
-{
-  /* <h3>Cast</h3>
-      <ul>
-        {castList.map(cast => {
-          const { name, character, profile_path, id } = cast;
-          return (
-            <li key={id} className="cast">
-              {profile_path && (
-                <img
-                  width="100"
-                  src={BASE_IMG_URL + profile_path}
-                  alt={name}
-                ></img>
-              )}
-              <p>{name}</p>
-              <p>Character: {character}</p>
-            </li>
-          );
-        })}
-      </ul> */
-}
