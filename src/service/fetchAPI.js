@@ -8,23 +8,23 @@ const BASE_URL = {
   GENRES: 'https://api.themoviedb.org/3/genre/movie/list',
 };
 
-export const fetchMovies = async query => {
-  if (query) {
-    console.log('fetchMoviesByQuery');
-    try {
-      const response = await axios.get(BASE_URL.SEARCH, {
-        params: {
-          api_key: API_KEY,
-          page: 1,
-          query,
-        },
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-    return;
+export const fetchMoviesByQuery = async query => {
+  console.log('fetchMoviesByQuery');
+  try {
+    const response = await axios.get(BASE_URL.SEARCH, {
+      params: {
+        api_key: API_KEY,
+        page: 1,
+        query,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
   }
+};
+
+export const fetchTrendingMovies = async () => {
   console.log('fetchTrendingMovies');
   try {
     const response = await axios.get(BASE_URL.TERNDING, {
@@ -39,7 +39,8 @@ export const fetchMovies = async query => {
   }
 };
 
-export const fetchMovie = async id => {
+export const fetchMovieById = async id => {
+  console.log('fetchMovieById');
   try {
     const response = await axios.get(BASE_URL.MOVIE + id, {
       params: {

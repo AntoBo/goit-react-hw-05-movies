@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SearchForm = () => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState('');
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const SearchForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} />
+      <input value={input} type="text" onChange={handleChange} />
       <button type="submit">Search</button>
     </form>
   );
