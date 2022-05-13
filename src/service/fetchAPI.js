@@ -10,18 +10,22 @@ const BASE_URL = {
 };
 
 export const fetchMoviesByQuery = async query => {
-  console.log('fetchMoviesByQuery');
-  try {
-    const response = await axios.get(BASE_URL.SEARCH, {
-      params: {
-        api_key: API_KEY,
-        page: 1,
-        query,
-      },
-    });
-    return response;
-  } catch (error) {
-    console.log(error);
+  if (query) {
+    try {
+      console.log('fetchMoviesByQuery');
+      const response = await axios.get(BASE_URL.SEARCH, {
+        params: {
+          api_key: API_KEY,
+          page: 1,
+          query,
+        },
+      });
+      return response.data.results;
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    console.log('no query');
   }
 };
 

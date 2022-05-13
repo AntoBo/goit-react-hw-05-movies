@@ -5,22 +5,26 @@ import MovieCard from 'components/MovieCard/MovieCard';
 import GoBackBtn from '../../utils/GoBackBtn';
 import InfoDetails from 'components/InfoDetails/InfoDetails';
 import { useData } from 'hooks/useData';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetailsPage = () => {
   const location = useLocation();
 
   const goBackPath = location.state.pathname + location.state.search;
+  const [movie, isLoading] = useData(fetchMovieById);
 
-  console.log('location is ', location);
-  console.log('goBackPath is ', goBackPath);
-
-  const movie = useData(fetchMovieById);
   return (
     <>
-      <GoBackBtn goBackPath={goBackPath} />
-      {movie && <MovieCard movie={movie} />}
-      <InfoDetails />
-      <Outlet />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <GoBackBtn goBackPath={goBackPath} />
+          {movie && <MovieCard movie={movie} />}
+          <InfoDetails />
+          <Outlet />
+        </>
+      )}
     </>
   );
 };

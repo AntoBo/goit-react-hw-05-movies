@@ -1,5 +1,3 @@
-- goBackBtn
-- Loader
 - Split code
 - Netlify
 - Sass

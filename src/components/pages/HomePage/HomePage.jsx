@@ -1,15 +1,14 @@
+import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useData } from 'hooks/useData';
-// import { useLocation } from 'react-router-dom';
 import { fetchTrendingMovies } from '../../../service/fetchAPI';
 
 const HomePage = () => {
-  // const location = useLocation();
-  const movies = useData(fetchTrendingMovies, []);
+  const [movies, isLoading] = useData(fetchTrendingMovies, []);
   return (
     <>
       <h1>Trending today</h1>
-      {movies.length > 0 && <MoviesList movies={movies} />}
+      {isLoading ? <Loader /> : <MoviesList movies={movies} />}
     </>
   );
 };
