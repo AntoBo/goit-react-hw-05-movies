@@ -7,7 +7,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchTrendingMovies() //no args mean fetch trending list
-      .then(data => setMovies(data.data.results))
+      .then(data => setMovies(data))
       .catch(err => console.log(err))
       .finally(() => {
         //loader ends here
