@@ -4,13 +4,11 @@
 }
 
 .link {
+  color: rgb(60, 102, 218);
   margin: 0 10px;
   font-weight: bold;
   font-size: 20px;
   text-decoration: none;
-  &:visited {
-    color: currentColor;
-  }
 }
 
 .activeLink {
@@ -19,8 +17,5 @@
   font-weight: bold;
   font-size: 20px;
   text-decoration: none;
-  &:visited {
-    color: currentColor;
-  }
-  color: rgb(41, 76, 174) !important;
+  color: rgb(15, 45, 129) !important;
 }
