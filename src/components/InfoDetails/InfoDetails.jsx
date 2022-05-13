@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const InfoDetails = () => {
+  const location = useLocation();
   return (
     <div className="movie-infolinks-wrapper">
       <hr />
       <p>Additional information</p>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={location.state}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={location.state}>
+            Reviews
+          </Link>
         </li>
       </ul>
     </div>
