@@ -1,6 +1,7 @@
 import Loader from 'components/Loader/Loader';
 import { useData } from 'hooks/useData';
 import { fetchMovieReviews } from '../../service/fetchAPI';
+import s from './Reviews.module.scss';
 
 const Reviews = () => {
   const [reviews, isLoading] = useData(fetchMovieReviews, []);
@@ -9,7 +10,6 @@ const Reviews = () => {
   }
   return (
     <>
-      <h3>Reviews</h3>
       {isLoading ? (
         <Loader />
       ) : (
@@ -17,9 +17,9 @@ const Reviews = () => {
           {reviews.map(review => {
             const { author, content, id } = review;
             return (
-              <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
+              <li className={s.item} key={id}>
+                <p className={s.autor}>{author}</p>
+                <p className={s.review}>{content}</p>
               </li>
             );
           })}

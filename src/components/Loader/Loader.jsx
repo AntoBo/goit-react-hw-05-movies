@@ -1,12 +1,12 @@
-// import { Rings } from 'react-loader-spinner';
+import { Bars } from 'react-loader-spinner';
+import s from './Loader.module.scss';
 
 const Loader = () => {
   console.log('Loader invoked');
   return (
-    <p>Loading...</p>
-    // <div className="loader">
-    //   <Rings height="100" width="100" color="grey" ariaLabel="loading" />
-    // </div>
+    <div className={s.loader}>
+      <Bars height="40" width="40" color="grey" ariaLabel="loading" />
+    </div>
   );
 };
 

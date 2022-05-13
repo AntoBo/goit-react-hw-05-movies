@@ -1,0 +1,17 @@
+.wrapper {
+  & img {
+    margin-bottom: 10px;
+  }
+  & h1,
+  h2,
+  h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  & p {
+    margin-bottom: 20px;
+  }
+  & span {
+    margin-right: 10px;
+  }
+}

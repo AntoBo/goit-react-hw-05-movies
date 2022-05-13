@@ -1,21 +1,28 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import s from './InfoDetails.module.scss';
 
 const InfoDetails = () => {
   const location = useLocation();
   return (
-    <div className="movie-infolinks-wrapper">
-      <hr />
-      <p>Additional information</p>
+    <div className={s.wrap}>
       <ul>
         <li>
-          <Link to="cast" state={location.state}>
+          <NavLink
+            to="cast"
+            state={location.state}
+            className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          >
             Cast
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="reviews" state={location.state}>
+          <NavLink
+            to="reviews"
+            state={location.state}
+            className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          >
             Reviews
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

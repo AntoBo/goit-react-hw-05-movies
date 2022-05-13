@@ -10,7 +10,15 @@ import Loader from 'components/Loader/Loader';
 const MovieDetailsPage = () => {
   const location = useLocation();
 
-  const goBackPath = location.state.pathname + location.state.search;
+  const getPath = location => {
+    if (location.state) {
+      const { pathname = '/', search = null } = location.state;
+      const goBackPath = pathname + search;
+      console.log(goBackPath);
+      return goBackPath;
+    } else return '/';
+  };
+
   const [movie, isLoading] = useData(fetchMovieById);
 
   return (
@@ -19,7 +27,7 @@ const MovieDetailsPage = () => {
         <Loader />
       ) : (
         <>
-          <GoBackBtn goBackPath={goBackPath} />
+          <GoBackBtn goBackPath={getPath(location)} />
           {movie && <MovieCard movie={movie} />}
           <InfoDetails />
           <Outlet />

@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import s from './MoviesList.module.scss';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const MoviesList = ({ movies }) => {
         movies.map(movie => {
           const { id, title } = movie;
           return (
-            <li key={id}>
+            <li className={s.item} key={id}>
               {
                 <Link to={`/movies/${id}`} state={location}>
                   {title}

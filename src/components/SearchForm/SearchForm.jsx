@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import s from './SearchForm.module.scss';
 
 const SearchForm = () => {
   const [input, setInput] = useState('');
@@ -22,9 +23,16 @@ const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input value={input} type="text" onChange={handleChange} />
-      <button type="submit">Search</button>
+    <form className={s.form} onSubmit={handleSubmit}>
+      <input
+        className={s.input}
+        value={input}
+        type="text"
+        onChange={handleChange}
+      />
+      <button className={s.btn} type="submit">
+        Search
+      </button>
     </form>
   );
 };

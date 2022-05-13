@@ -1,0 +1,25 @@
+.wrap {
+  padding: 20px 0;
+
+  & li {
+    margin-bottom: 10px;
+  }
+}
+.title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.link {
+  color: rgb(60, 102, 218);
+  //   font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.activeLink {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(27, 57, 138) !important;
+}
